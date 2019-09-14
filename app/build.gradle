@@ -14,10 +14,30 @@ android {
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
+
+    compileOptions {
+        sourceCompatibility = 1.8
+        targetCompatibility = 1.8
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions 'version'
+
+    productFlavors {
+        dev {
+            buildConfigField 'String', 'TD_ENDPOINT', '"https://api.td-davinci.com/api/"'
+            buildConfigField 'String', 'USER_ID', '"92d7bd91-bb8d-4b4e-9913-26cac8d33d99"'
+            buildConfigField 'String', 'TD_API_KEY', '"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDQlAiLCJ0ZWFtX2lkIjoiOGU1MWJiZTgtYzBhYS0zNTNlLWE3ZmItMWU4NjI4ZjU3ODAzIiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJhcHBfaWQiOiIwNTg2NGU1MC03MWFlLTQxNjItOGZmOS0xYzM1ZDA2YzI2ODgifQ.Yyzz_J2ujyIs4IN98ppFgMOO_-RYJjdd8Vj3M3PGtx8"'
         }
     }
 }
@@ -31,5 +51,12 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-alpha04'
+
+    implementation 'com.jakewharton.timber:timber:4.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.2.0'
     implementation 'com.google.android.material:material:1.0.0'
 }
