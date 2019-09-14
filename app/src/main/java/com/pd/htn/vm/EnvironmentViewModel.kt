@@ -6,7 +6,7 @@ import com.pd.htn.models.TDApiResponse
 import com.pd.htn.models.Transfer
 import com.pd.htn.repos.TDRepository
 
-class TransferViewModel : ViewModel() {
+class EnvironmentViewModel : ViewModel() {
     private val repo = TDRepository()
 
     fun transferMoney(transfer : Transfer) : LiveData<TDApiResponse<Unit>> = repo.transferMoney(transfer)

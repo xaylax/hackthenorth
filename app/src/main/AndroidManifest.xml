@@ -6,9 +6,7 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="true" />
-
-
-
+    
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -26,19 +24,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    </application>
-
-        android:fullBackupContent="@xml/backup_descriptor"
-        android:theme="@style/AppTheme"
-        tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".EnvironmentActivity" />
-        <activity android:name=".FinanceActivity" />
 
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -50,6 +35,4 @@
                 android:resource="@xml/file_paths" />
         </provider>
     </application>
-
-
 </manifest>

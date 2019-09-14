@@ -5,12 +5,14 @@ import android.net.Uri
 import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
-import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.app.ActionBar
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.FileProvider
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.pd.htn.vm.UserViewModel
+import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -20,22 +22,25 @@ class MainActivity : AppCompatActivity() {
 
     private val imageCapture = 1
     private var currentPhotoPath: String = ""
-    private lateinit var toolbar: ActionBar
+    private lateinit var vm : UserViewModel
+
+    private var currentNavHash = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        toolbar = supportActionBar!!
         setContentView(R.layout.activity_main)
-        // get reference to button
-        val addReceiptBtn = findViewById<Button>(R.id.receipt)
-// set on-click listener
-        addReceiptBtn.setOnClickListener {
+        openFragment(DashboardFragment())
+
+        // set on-click listener
+        receipt.setOnClickListener {
             dispatchTakePictureIntent()
             galleryAddPic()
         }
+
         val bottomNavigation: BottomNavigationView = findViewById(R.id.nav)
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
+        vm = ViewModelProvider(this).get(UserViewModel::class.java)
     }
 
 
@@ -68,7 +73,7 @@ class MainActivity : AppCompatActivity() {
     @Throws(IOException::class)
     private fun createImageFile(): File {
         // Create an image file name
-        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
+        val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.CANADA).format(Date())
         val storageDir: File = getExternalFilesDir(Environment.DIRECTORY_PICTURES)!!
         return File.createTempFile(
             "JPEG_${timeStamp}_", /* prefix */
@@ -92,25 +97,29 @@ class MainActivity : AppCompatActivity() {
         BottomNavigationView.OnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.environment_nav -> {
-                    toolbar.title = "Environment"
-                    val environmentActivity =
-                        Intent(applicationContext, EnvironmentActivity::class.java)
-                    startActivity(environmentActivity)
+                    openFragment(EnvironmentFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.home_nav -> {
-                    toolbar.title = "Dashboard"
-                    val mainActivity = Intent(applicationContext, MainActivity::class.java)
-                    startActivity(mainActivity)
+                    openFragment(DashboardFragment())
                     return@OnNavigationItemSelectedListener true
                 }
                 R.id.finance_nav -> {
-                    toolbar.title = "Finances"
-                    val financeActivity = Intent(applicationContext, FinanceActivity::class.java)
-                    startActivity(financeActivity)
+                    openFragment(FinanceFragment())
                     return@OnNavigationItemSelectedListener true
                 }
             }
             false
         }
+
+    private fun openFragment(fragment: Fragment) {
+        if (currentNavHash == fragment.hashCode()) return
+        else {
+            currentNavHash = fragment.hashCode()
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.replace(R.id.container, fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+    }
 }
