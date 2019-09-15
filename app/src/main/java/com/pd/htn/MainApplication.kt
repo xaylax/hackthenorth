@@ -24,6 +24,10 @@ class MainApplication : Application() {
             .client(httpClient)
             .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
+
+        val retrofit2 = Retrofit.Builder()
+            .baseUrl(BuildConfig.R_ENDPOINT)
+            .build()
     }
 
 

@@ -36,7 +36,8 @@ android {
     productFlavors {
         dev {
             buildConfigField 'String', 'TD_ENDPOINT', '"https://api.td-davinci.com/api/"'
-            buildConfigField 'String', 'USER_ID', '"90f54a9f-9112-451b-b2f9-e5de6b16e0b0"'
+            buildConfigField 'String', 'USER_ID', '"4806f34e-93a6-4e2f-9e41-5ee9f0d24f14"'
+            buildConfigField 'String', 'R_ENDPOINT', '"https://clever-elephant-29.localtunnel.me"'
             buildConfigField 'String', 'TD_API_KEY', '"eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDQlAiLCJ0ZWFtX2lkIjoiOGU1MWJiZTgtYzBhYS0zNTNlLWE3ZmItMWU4NjI4ZjU3ODAzIiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJhcHBfaWQiOiIwNTg2NGU1MC03MWFlLTQxNjItOGZmOS0xYzM1ZDA2YzI2ODgifQ.Yyzz_J2ujyIs4IN98ppFgMOO_-RYJjdd8Vj3M3PGtx8"'
         }
     }
