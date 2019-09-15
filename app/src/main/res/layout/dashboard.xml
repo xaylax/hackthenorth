@@ -3,6 +3,7 @@
     android:paddingHorizontal="@dimen/screenPaddingHorizontal"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
+    android:id="@+id/dashboard"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 

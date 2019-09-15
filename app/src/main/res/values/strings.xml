@@ -8,4 +8,11 @@
     <string name="finances">finances</string>
     <string name="send_to_savings_button">Transfer money to savings</string>
     <string name="total_saved_title">You have saved</string>
+    <string name="total_spent">Total Spent</string>
+    <string name="your_carbon_footprint">Your Carbon Footprint</string>
+    <string name="what_is_a_carbon_footprint">What is a carbon footprint?</string>
+    <string name="calculate_footprint">How do we calculate \n your carbon footprint?</string>
+    <string name="you">You</string>
+    <string name="other_people_your_age">Other people your age</string>
+    <string name="what_is_carbon_footprint">Your carbon footprint is calculated with the \n amount of greenhouse gasses you released \n throughout one year.</string>
 </resources>
