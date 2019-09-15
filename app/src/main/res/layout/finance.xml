@@ -110,4 +110,42 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
+    <TextView
+        android:id="@+id/td_solns"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/td_solutions"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/mutual_funds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="8dp"
+        android:background="#BFE9E4E4"
+        android:text="@string/td_mutual_funds"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/comfort_portfolio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="8dp"
+        android:background="#80DBDBDB"
+        android:textSize="18sp"
+        android:text="@string/td_comfort_portfolios" />
+
+    <Button
+        android:id="@+id/hisa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:layout_marginVertical="8dp"
+        android:background="#80DBDBDB"
+        android:textSize="18sp"
+        android:text="@string/td_high_interest_savings_account" />
+
 </LinearLayout>

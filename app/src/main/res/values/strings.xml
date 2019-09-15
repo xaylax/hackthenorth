@@ -23,4 +23,8 @@
     <string name="reduce_consump_string">To reduce your consumption, therefore both helping the environment and your own wallet by limiting your expenses, you should always bring a bag to the store. Furthermore, it is a good idea to turn the A/C off when leaving the house, as it can be a quick energy and money sink without being noticed.</string>
     <string name="buy_right_produce_txt">To buy the right produce, it is important to keep in mind that each of them has its season. When you buy produce that is off-season, it will require a lot of transport to get to your grocery store. This increases the price, as the costs need to be offset, as well as negatively impacts the environment.</string>
     <string name="what_gain">When you take into account the environmental cost of your everyday choices, you also start to realize all the opportunities for good that occur in your everyday life. Simply bringing a reusable bag and keeping an eye out for seasonal fruits and vegetables is a way of not only saving money (those five cents add up!) but also of positively impacting the earth.</string>
+    <string name="td_solutions">Consider these TD solutions to make money from your savings!</string>
+    <string name="td_mutual_funds">TD Mutual Funds</string>
+    <string name="td_comfort_portfolios">TD Comfort Portfolios</string>
+    <string name="td_high_interest_savings_account">TD High Interest Savings Account</string>
 </resources>

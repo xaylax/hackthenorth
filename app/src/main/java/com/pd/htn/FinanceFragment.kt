@@ -1,5 +1,7 @@
 package com.pd.htn
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -33,6 +35,23 @@ class FinanceFragment : Fragment() {
             arrow.rotation = if (rewardHistory.isVisible) 180f else 0f
             rewardHistory.isVisible = !rewardHistory.isVisible
         }
+
+        mutual_funds.setOnClickListener{
+            startActivity(Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.td.com/ca/en/personal-banking/products/saving-investing/mutual-funds/td-mutual-funds/")))
+        }
+
+        comfort_portfolio.setOnClickListener{
+            startActivity(Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.td.com/ca/en/personal-banking/products/saving-investing/mutual-funds/td-comfort-portfolios/")))
+        }
+
+        hisa.setOnClickListener{
+            startActivity(Intent(Intent.ACTION_VIEW,
+                Uri.parse("https://www.td.com/ca/en/personal-banking/products/bank-accounts/savings-accounts/high-interest-savings-account/")))
+        }
+
+
 
         vm.rewardTransactions.observe(this, Observer {
             (rewardHistory as RecyclerView).apply {
