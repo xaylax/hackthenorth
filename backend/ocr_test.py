@@ -51,8 +51,10 @@ def getClosestMatchFromTable(my_DB,phrase): #scans the entire table and checks w
     
 def analyze_receipt(analysis,my_DB):
     envScore=0
+    numberOfPlastics=0
     scoreExplanation=[]
     words=[]
+    #print(analysis)
     for region in analysis["regions"]:
         for line in region["lines"]:
             phrase=""
@@ -78,7 +80,7 @@ def analyze_receipt(analysis,my_DB):
                     if info[0][1]!="No":
                         envScore-=1
                         scoreExplanation.append("Exported rather than local")
-                    if info[0][0]!='None' and season not in info[1]:
+                    if info[0][0]!='None' and season not in info[0][1]:
                         envScore-=1
                         scoreExplanation.append("Offseason, must be shipped in")
 
@@ -90,8 +92,20 @@ def analyze_receipt(analysis,my_DB):
                     #print(maxList)
                         envScore-=maxList if maxList>1 else 1 #get the largest integer
                         scoreExplanation.append("Use of plastic pollutants")
+                        numberOfPlastics=maxList
                     except:
                         envScore-=1
                         scoreExplanation.append("Use of plastic pollutants")
-    print('words',words)
-    return envScore, scoreExplanation
+                if getClosestMatch(phrase,"GREEN BAG") or getClosestMatch(phrase,"REFILL"):
+                    list_of_nums = map(int, re.findall('\d+', phrase)) #find all the integers in that phrase
+                    try:   
+                        maxList=max(list_of_nums)
+                    #print(maxList)
+                        envScore+=maxList if maxList>1 else 1 #get the largest integer
+                        scoreExplanation.append("Use of reusable items")
+                        numberOfPlastics=maxList
+                    except:
+                        envScore+=1
+                        scoreExplanation.append("Use of resusable items")
+    #print('words',words)
+    return envScore, scoreExplanation,numberOfPlastics
