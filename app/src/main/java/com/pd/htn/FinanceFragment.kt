@@ -8,6 +8,8 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.pd.htn.vm.FinancialViewModel
 import kotlinx.android.synthetic.main.finance.*
 
@@ -31,6 +33,14 @@ class FinanceFragment : Fragment() {
             arrow.rotation = if (rewardHistory.isVisible) 180f else 0f
             rewardHistory.isVisible = !rewardHistory.isVisible
         }
+
+        vm.rewardTransactions.observe(this, Observer {
+            (rewardHistory as RecyclerView).apply {
+                setHasFixedSize(true)
+                layoutManager = LinearLayoutManager(activity)
+                adapter = RecyclerAdapter(it)
+            }
+        })
 
         vm.totalRewardTransactions.observe(this, Observer {
             val doubleString = it.toString().split(".")

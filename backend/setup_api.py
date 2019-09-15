@@ -7,14 +7,15 @@ import os
 import sys
 from io import BytesIO
 import re
-def setUpKey():
+
+def setUpKey(img_path):
     # Add your Computer Vision subscription key and endpoint to your environment variables.
     subscription_key = 'e26e9d900bcb477ebb72985ededb6215'
     endpoint = 'http://westus2.api.cognitive.microsoft.com/'
     analyze_url = endpoint + "vision/v1.0/ocr"
 
     # Set image_path to the local path of an image that you want to analyze.
-    image_path = "/home/yifei/Downloads/rec.jpg"
+    image_path = img_path+"image.jpg"
 
     # Read the image into a byte array/
     image_data = open(image_path, "rb").read()

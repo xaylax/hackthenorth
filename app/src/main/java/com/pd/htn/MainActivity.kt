@@ -1,6 +1,5 @@
 package com.pd.htn
 
-//import com.pd.htn.vm.MainViewModel
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -8,13 +7,14 @@ import android.os.Environment
 import android.provider.MediaStore
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat.startActivityForResult
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.pd.htn.vm.MainViewModel
 import com.pd.htn.vm.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
+import timber.log.Timber
 import java.io.File
 import java.io.IOException
 import java.nio.file.Files
@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
     private val imageCapture = 1
     private var currentPhotoPath: String = ""
     private lateinit var vm : UserViewModel
-//    private lateinit var vm2 : MainViewModel
+    private lateinit var vmMain : MainViewModel
 
     private var currentNavHash = 0
 
@@ -46,11 +46,11 @@ class MainActivity : AppCompatActivity() {
         bottomNavigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
 
         vm = ViewModelProvider(this).get(UserViewModel::class.java)
-//        vm2 = ViewModelProvider(this).get(MainViewModel::class.java)
+        vmMain = ViewModelProvider(this).get(MainViewModel::class.java)
 
-//        vm2.receipt.observe(this, androidx.lifecycle.Observer {
-
-       // })
+        vmMain.receiptResponse.observe(this, androidx.lifecycle.Observer {
+            Timber.e(it.toString())
+        })
     }
 
 
@@ -76,6 +76,8 @@ class MainActivity : AppCompatActivity() {
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, imageCapture)
                 }
+
+                vmMain.uploadReceipt(imageToByteArray())
             }
         }
     }
@@ -133,16 +135,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun imageToByteArray(): ByteArray{
+    private fun imageToByteArray(): ByteArray {
         return Files.readAllBytes(Paths.get(currentPhotoPath)).toUByteArray().asByteArray()
     }
-
-//    private fun sendImageToTunnel() {
-//        val url = URL("https://great-falcon-63.localtunnel.me/")
-//        with(url.openConnection() as HttpURLConnection) {
-//            requestMethod = "POST"
-//
-//
-//        }
-//    }
 }
