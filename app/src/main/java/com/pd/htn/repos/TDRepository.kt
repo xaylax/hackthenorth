@@ -105,4 +105,10 @@ class TDRepository {
                 }
             })
     }
+
+//    fun uploadReceipt(image: ByteArray, callback : Callback<Receipt>) {
+//        val responseLive : MutableLiveData<Receipt> = MutableLiveData()
+
+//        service.uploadReceipt(image).enqueue(callback)
+//    }
 }

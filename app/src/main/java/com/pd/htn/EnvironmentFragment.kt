@@ -1,19 +1,20 @@
 package com.pd.htn
 
-import android.content.Context
 import android.os.Bundle
+import android.transition.Transition
 import android.transition.TransitionManager
+import android.transition.Visibility
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
+import android.view.View.GONE
+import android.view.View.INVISIBLE
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.ContextCompat.getSystemServiceName
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -33,25 +34,28 @@ class EnvironmentFragment : Fragment() {
     ): View? {
         vm = ViewModelProvider(activity as AppCompatActivity).get(EnvironmentViewModel::class.java)
         return inflater.inflate(R.layout.environment, container, false)
-
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       what_button.setOnClickListener{
-            val popup = PopupWindow(layoutInflater.inflate(R.layout.popup, null),
+        what_button.setOnClickListener{
+            val layout = layoutInflater.inflate(R.layout.popup, null)
+            val button = layout.findViewById<Button>(R.id.button_popup)
+
+            val popup = PopupWindow(
+                layout,
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT)
-           popup.elevation = 10.0F
+            popup.elevation = 10.0F
 
-           button_popup.setOnClickListener{
-               popup.dismiss()
-           }
-           TransitionManager.beginDelayedTransition(environment)
-           popup.showAtLocation(environment, Gravity.CENTER, 0, 0)
-       }
+            TransitionManager.beginDelayedTransition(environment)
+            popup.showAtLocation(environment, Gravity.CENTER, 0, 0)
+            button.setOnClickListener {
+                popup.dismiss()
+                layout.visibility = GONE
+            }
+        }
 
         vm.customerAccounts.observe(this, Observer {
             val chequeId = it.bankAccounts.find { it.type == "DDA" }?.id

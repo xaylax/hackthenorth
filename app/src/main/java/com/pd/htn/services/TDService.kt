@@ -17,6 +17,12 @@ interface TDService {
     @POST("transfers")
     fun transferMoney(@Body transfer : Transfer) : Call<TDApiResponse<TransferPOSTResponse>>
 
+//    @Headers( { "Content-Type: application/octet-stream",
+//        "Ocp-Apim-Subscription-Key: e26e9d900bcb477ebb72985ededb6215"
+//    })
+//    @POST("")
+//    fun uploadReceipt(@Body image: ByteArray) : Call<Receipt>
+
     @PUT("transactions/{transId}/tags")
     fun changeCategoryTags(@Path("transId") transactionId : String, @Body tags : Collection<String>) : Call<Unit>
 }
