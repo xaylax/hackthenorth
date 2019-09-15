@@ -8,4 +8,5 @@
     <string name="finances">finances</string>
     <string name="send_to_savings_button">Transfer money to savings</string>
     <string name="total_saved_title">You have saved</string>
+    <string name="to_savings">To Savings</string>
 </resources>

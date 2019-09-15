@@ -1,6 +1,7 @@
 package com.pd.htn
 
 import android.app.Application
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -16,10 +17,12 @@ class MainApplication : Application() {
             it.proceed(request)
         }.build()
 
+        val gson = GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create()
+
         val retrofit = Retrofit.Builder()
             .baseUrl(BuildConfig.TD_ENDPOINT)
             .client(httpClient)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build();
     }
 

@@ -7,3 +7,8 @@ data class Transfer(
     val toAccountId : String,
     val currency : String = "CAD"
 )
+
+data class TransferPOSTResponse(
+    val creditTransactionID : String // which ever account got the "CREDIT"
+)
+

@@ -11,19 +11,12 @@ class FinancialViewModel : ViewModel() {
     private val repo = TDRepository()
 
     private val transactions = repo.getCustomerTransactions(BuildConfig.USER_ID)
-    val utilTransactions : LiveData<Collection<Transaction>> = Transformations.map(transactions) {
-        it.filter { transaction -> transaction.merchantCode == 4900 }
+
+    val rewardTransactions : LiveData<Collection<Transaction>> = Transformations.map(transactions) {
+        it.filter { transaction -> transaction.categoryTags.contains("Reward") }
     }
 
-    val transitTransactions : LiveData<Collection<Transaction>> = Transformations.map(transactions) {
-        it.filter { transaction -> transaction.merchantCode == 5814 }
-    }
-
-    val gasTransactions : LiveData<Collection<Transaction>> = Transformations.map(transactions) {
-        it.filter { transaction -> transaction.merchantCode == 5541 }
-    }
-
-    val parkingTransactions : LiveData<Collection<Transaction>> = Transformations.map(transactions) {
-        it.filter { transaction -> transaction.merchantCode == 7523 }
+    val totalRewardTransactions : LiveData<Double> = Transformations.map(rewardTransactions) {
+        it.sumByDouble { it.currencyAmount }
     }
 }

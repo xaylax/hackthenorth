@@ -1,14 +1,8 @@
 package com.pd.htn.services
 
-import com.pd.htn.models.CustomerResponse
-import com.pd.htn.models.TDApiResponse
-import com.pd.htn.models.TransactionResponse
-import com.pd.htn.models.Transfer
+import com.pd.htn.models.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Path
+import retrofit2.http.*
 
 interface TDService {
     @GET("customers/{custId}")
@@ -17,6 +11,12 @@ interface TDService {
     @GET("customers/{custId}/transactions")
     fun getCustomerTransactions(@Path("custId") customerId: String) : Call<TransactionResponse>
 
+    @GET("customers/{custId}/accounts")
+    fun getCustomerAccounts(@Path("custId") customerId: String) : Call<AccountsResponse>
+
     @POST("transfers")
-    fun transferMoney(@Body transfer : Transfer) : Call<TDApiResponse<Unit>>
+    fun transferMoney(@Body transfer : Transfer) : Call<TDApiResponse<TransferPOSTResponse>>
+
+    @PUT("transactions/{transId}/tags")
+    fun changeCategoryTags(@Path("transId") transactionId : String, @Body tags : Collection<String>) : Call<Unit>
 }
