@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EcoSAVE</string>
+    <string name="app_name">Grash</string>
     <string name="add_receipt">Add Receipt</string>
     <string name="welcome_back">Welcome back</string>
     <string name="environment">environment</string>
@@ -19,4 +19,8 @@
     <string name="right_produce">buying the right produce</string>
     <string name="reduce_consumption">Reducing consumption</string>
     <string name="x">X</string>
+    <string name="calculate_footprint_explanation">We calculate your carbon footprint by looking at several factors. First, we look at your utilities and transport expenses; buying gas and taking the car makes your score go down. We also look at your purchasing habits to see if you make environmentally conscious choices.</string>
+    <string name="reduce_consump_string">To reduce your consumption, therefore both helping the environment and your own wallet by limiting your expenses, you should always bring a bag to the store. Furthermore, it is a good idea to turn the A/C off when leaving the house, as it can be a quick energy and money sink without being noticed.</string>
+    <string name="buy_right_produce_txt">To buy the right produce, it is important to keep in mind that each of them has its season. When you buy produce that is off-season, it will require a lot of transport to get to your grocery store. This increases the price, as the costs need to be offset, as well as negatively impacts the environment.</string>
+    <string name="what_gain">When you take into account the environmental cost of your everyday choices, you also start to realize all the opportunities for good that occur in your everyday life. Simply bringing a reusable bag and keeping an eye out for seasonal fruits and vegetables is a way of not only saving money (those five cents add up!) but also of positively impacting the earth.</string>
 </resources>

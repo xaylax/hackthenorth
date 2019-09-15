@@ -134,12 +134,12 @@
 
     <TextView
         android:id="@+id/what_carbon_footprint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="118dp"
         android:layout_marginTop="8dp"
-        android:minLines="2"
-        android:text="@string/what_is_carbon_footprint"
+        android:text="@string/what_is_a_carbon_footprint"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/what_button"
         app:layout_constraintEnd_toEndOf="@+id/what_button"
         app:layout_constraintTop_toTopOf="@+id/what_button"
@@ -153,6 +153,7 @@
         android:minLines="2"
         android:text="@string/what_is_carbon_footprint"
         android:textSize="16sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@+id/how_button"
         app:layout_constraintEnd_toEndOf="@+id/how_button"
         app:layout_constraintStart_toStartOf="@+id/how_button"
@@ -160,22 +161,41 @@
         tools:visibility="gone" />
 
     <TextView
-        android:id="@+id/calculate_footprint2"
+        android:id="@+id/reduce_consumption_expl"
         android:layout_width="7dp"
         android:layout_height="80dp"
+        android:layout_marginStart="171dp"
         android:layout_marginTop="8dp"
         android:minLines="2"
-        android:text="@string/what_is_carbon_footprint"
+        android:text="@string/reduce_consump_string"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/how_button"
-        app:layout_constraintEnd_toEndOf="@+id/how_button"
-        app:layout_constraintStart_toStartOf="@+id/how_button"
-        app:layout_constraintTop_toTopOf="@+id/how_button"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/consumption_button"
+        app:layout_constraintEnd_toEndOf="@+id/consumption_button"
+        app:layout_constraintStart_toStartOf="@+id/consumption_button"
+        app:layout_constraintTop_toTopOf="@+id/consumption_button"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/buy_right_produce"
+        android:layout_width="7dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="171dp"
+        android:layout_marginTop="8dp"
+        android:minLines="2"
+        android:text="@string/buy_right_produce_txt"
+        android:textSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/consumption_button"
+        app:layout_constraintEnd_toEndOf="@+id/consumption_button"
+        app:layout_constraintStart_toStartOf="@+id/consumption_button"
+        app:layout_constraintTop_toTopOf="@+id/consumption_button"
         tools:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:visibility="gone">
 
         <TextView
             android:id="@+id/utilsExpense"
