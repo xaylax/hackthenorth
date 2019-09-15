@@ -27,4 +27,6 @@
     <string name="td_mutual_funds">TD Mutual Funds</string>
     <string name="td_comfort_portfolios">TD Comfort Portfolios</string>
     <string name="td_high_interest_savings_account">TD High Interest Savings Account</string>
+    <string name="saving_progress">You said you wanted to save <b>300$</b>:\n Here\'s how you\'re doing:</string>
+    <string name="congratulations_if_you_keep_this_pace_up_you_will_meet_your_goal_in_3_weeks">Congratulations! If you keep this pace up, you will meet your goal in <b>3 weeks!</b></string>
 </resources>
