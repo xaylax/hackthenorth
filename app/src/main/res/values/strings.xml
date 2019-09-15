@@ -15,4 +15,5 @@
     <string name="you">You</string>
     <string name="other_people_your_age">Other people your age</string>
     <string name="what_is_carbon_footprint">Your carbon footprint is calculated with the \n amount of greenhouse gasses you released \n throughout one year.</string>
+    <string name="to_savings">To Savings</string>
 </resources>
