@@ -45,15 +45,16 @@ class HelloWorld(Resource):
         return {'about': "hello "}
 
     def post(self):
+        print('POST')
         my_data=request.get_data()
         
         newFile = open("image.jpg", "wb") #open data as binary
         newFile.write(my_data) #write data
 
         analysis=setUpKey('/home/yifei/Documents/HackTheNorth2019/HTN2019FlaskServer/')
-        envScore,details=analyze_receipt(analysis,my_DB)
-
-        return {'Environmental Score': envScore, "Reasons for the score": details}
+        envScore,details,plastics=analyze_receipt(analysis,my_DB)
+        
+        return {'Environmental Score': envScore, "Reasons for the score": details,"Number of Plastics":plastics}
         # file = request.files['file']
         # fname = secure_filename(file.filename)
         # file.save('static/' + fname)
