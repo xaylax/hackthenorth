@@ -15,6 +15,8 @@ import com.pd.htn.vm.UserViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import java.io.IOException
+import java.nio.file.Files
+import java.nio.file.Paths
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -121,5 +123,9 @@ class MainActivity : AppCompatActivity() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
+    }
+
+    private fun imageToByteArray(): ByteArray{
+        return Files.readAllBytes(Paths.get(currentPhotoPath)).toUByteArray().asByteArray()
     }
 }

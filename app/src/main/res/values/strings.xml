@@ -2,7 +2,6 @@
     <string name="app_name">EcoSAVE</string>
     <string name="add_receipt">Add Receipt</string>
     <string name="welcome_back">Welcome back</string>
-    <string name="ioana">Ioana!</string>
     <string name="environment">environment</string>
     <string name="home">home</string>
     <string name="finances">finances</string>
@@ -14,6 +13,9 @@
     <string name="calculate_footprint">How do we calculate \n your carbon footprint?</string>
     <string name="you">You</string>
     <string name="other_people_your_age">Other people your age</string>
-    <string name="what_is_carbon_footprint">Your carbon footprint is calculated with the \n amount of greenhouse gasses you released \n throughout one year.</string>
+    <string name="what_is_carbon_footprint">Your carbon footprint is calculated with the amount of greenhouse gasses you released throughout one year.</string>
     <string name="to_savings">To Savings</string>
+    <string name="gain">what do you gain?</string>
+    <string name="right_produce">buying the right produce</string>
+    <string name="reduce_consumption">Reducing consumption</string>
 </resources>

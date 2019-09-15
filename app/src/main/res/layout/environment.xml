@@ -6,16 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
     <Button
-        android:id="@+id/how_button3"
+        android:id="@+id/gain_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="32dp"
         android:background="#FFAA00"
         android:minLines="2"
         android:padding="8dp"
-        android:text="what do you win?"
+        android:text="@string/gain"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/produce_button" />
@@ -29,6 +29,7 @@
         android:minLines="2"
         android:padding="8dp"
         android:text="@string/calculate_footprint"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/circleProgress"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +43,8 @@
         android:background="#F1EDE9"
         android:minLines="2"
         android:padding="8dp"
-        android:text="buying the right produce"
+        android:text="@string/right_produce"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/how_button"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +87,7 @@
         android:background="#E9F1E9"
         android:padding="8dp"
         android:text="@string/what_is_a_carbon_footprint"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +100,8 @@
         android:layout_marginTop="24dp"
         android:background="#E9F1E9"
         android:padding="8dp"
-        android:text="Reducing consumption"
+        android:text="@string/reduce_consumption"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/what_button"
@@ -135,10 +139,39 @@
         android:layout_marginTop="8dp"
         android:minLines="2"
         android:text="@string/what_is_carbon_footprint"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="@+id/what_button"
         app:layout_constraintEnd_toEndOf="@+id/what_button"
         app:layout_constraintTop_toTopOf="@+id/what_button"
-        tools:visibility="invisible" />
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/calculate_footprint"
+        android:layout_width="7dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:minLines="2"
+        android:text="@string/what_is_carbon_footprint"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/how_button"
+        app:layout_constraintEnd_toEndOf="@+id/how_button"
+        app:layout_constraintStart_toStartOf="@+id/how_button"
+        app:layout_constraintTop_toTopOf="@+id/how_button"
+        tools:visibility="gone" />
+
+    <TextView
+        android:id="@+id/calculate_footprint2"
+        android:layout_width="7dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="8dp"
+        android:minLines="2"
+        android:text="@string/what_is_carbon_footprint"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/how_button"
+        app:layout_constraintEnd_toEndOf="@+id/how_button"
+        app:layout_constraintStart_toStartOf="@+id/how_button"
+        app:layout_constraintTop_toTopOf="@+id/how_button"
+        tools:visibility="gone" />
 
     <LinearLayout
         android:layout_width="match_parent"
